@@ -53,16 +53,16 @@ public class Client{
     }
   }
 
-  // public static Stylist find(int mId) {
-  //   try(Connection con = DB.sql2o.open()) {
-  //     String sql = "SELECT id AS mId, name AS mName FROM stylists WHERE id=:id";
-  //     Stylist stylist = con.createQuery(sql)
-  //       .addParameter("id", mId)
-  //       .executeAndFetchFirst(Stylist.class);
-  //     return stylist;
-  //   }
-  // }
-  //
+  public static Client find(int mId) {
+    try(Connection con = DB.sql2o.open()) {
+      String sql = "SELECT id AS mId, name AS mName, stylist_id AS mStylistId FROM clients WHERE id=:id";
+      Client client = con.createQuery(sql)
+        .addParameter("id", mId)
+        .executeAndFetchFirst(Client.class);
+      return client;
+    }
+  }
+
   // public void update(String name) {
   //   try(Connection con = DB.sql2o.open()) {
   //     String sql = "UPDATE stylists SET name = :name WHERE id = :id";

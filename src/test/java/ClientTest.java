@@ -26,15 +26,15 @@ public class ClientTest {
     myClient.save();
     assertTrue(Client.all().get(0).equals(myClient));
   }
-  //
-  // @Test
-  // public void find_findStylistInDatabase_true() {
-  //   Stylist myStylist = new Stylist("Franz Ferdinand");
-  //   myStylist.save();
-  //   Stylist savedStylist = Stylist.find(myStylist.getId());
-  //   assertTrue(myStylist.equals(savedStylist));
-  // }
-  //
+
+  @Test
+  public void find_findClientInDatabase_true() {
+    Client myClient = new Client("Gavrilo Princip", 1);
+    myClient.save();
+    Client savedClient = Client.find(myClient.getId());
+    assertTrue(myClient.equals(savedClient));
+  }
+
   // @Test
   // public void update_updatesStylistNameInDatabase_newName() {
   //   Stylist myStylist = new Stylist("Franz Ferdinand");
