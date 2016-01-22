@@ -8,3 +8,24 @@
 <form action="/stylist/$stylist.getId()/delete" method="post">
   <button type="submit" class="btn btn-warning">Delete Stylist</button>
 </form>
+
+
+<form action="/stylist/$stylist.getId()/client/delete" method="post">
+  <div class="form-group">
+    <label for="clientDelete">Select a Client</label>
+    <select id='clientDelete' name='clientDelete' type='text'>
+    #foreach($client in $stylist.getClients())
+      <option value="$client.getId()">$client.getName()</option>
+    #end
+    </select>
+  </div>
+  <button type="submit" class="btn btn-success">Delete Client</button>
+</form>
+
+<form action="/stylist/$stylist.getId()" method="post">
+  <div class="form-group">
+    <label for="updateStylist">Update Stylist Name</label>
+    <input id="updateStylist" name="updateStylist" type="text" class="form-control" maxlength="70">
+  </div>
+  <button type="submit" class="btn btn-success">Update Stylist Information</button>
+</form>

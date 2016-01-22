@@ -5,18 +5,25 @@
 
 <ul>
   #foreach ($stylist in $stylists)
-    <li><h5><a href="/stylist/$stylist.getId()">$stylist.getName()</a></h5></li>
+    <h4><a href="/stylist/$stylist.getId()">$stylist.getName()</a></h4>
   #end
 </ul>
 
+<br>
+<h3>Add Stylists</h3>
 <form action="/stylist/new" method="post">
   <div class="form-group">
     <label for="stylist">Stylist name</label>
-    <input id="stylist" name="stylist" type="text" class="form-control">
+    <input id="stylist" name="stylist" type="text" class="form-control" maxlength="70">
   </div>
   <button type="submit" class="btn btn-success">Add Stylist</button>
 </form>
 
+
+
+<br>
+<br>
+<h3>Add Clients</h3>
 <form action="/client/new" method="post">
   <div class="form-group">
     <label for="stylistId">Select a Stylist</label>
@@ -26,10 +33,9 @@
     #end
     </select>
   </div>
-
   <div class="form-group">
     <label for="client">Client Name</label>
-    <input id="client" name="client" type="text" class="form-control">
+    <input id="client" name="client" type="text" class="form-control" maxlength="70">
   </div>
 
   <button type="submit" class="btn btn-success">Add Client</button>
