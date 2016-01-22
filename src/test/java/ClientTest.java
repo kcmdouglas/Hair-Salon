@@ -12,14 +12,14 @@ public class ClientTest {
   public void all_emptyAtFirst() {
     assertEquals(Client.all().size(), 0);
   }
-  //
-  // @Test
-  // public void equals_returnsTrueIfNamesAretheSame() {
-  //   Stylist firstStylist = new Stylist("Franz Ferdinand");
-  //   Stylist secondStylist = new Stylist("Franz Ferdinand");
-  //   assertTrue(firstStylist.equals(secondStylist));
-  // }
-  //
+
+  @Test
+  public void equals_returnsTrueIfNamesAretheSame() {
+    Client firstClient = new Client("Gavrilo Princip", 1);
+    Client secondClient = new Client("Gavrilo Princip", 1);
+    assertTrue(firstClient.equals(secondClient));
+  }
+
   // @Test
   // public void save_savesIntoDatabase_true() {
   //   Stylist myStylist = new Stylist("Franz Ferdinand");
