@@ -4,3 +4,7 @@
 #foreach ($client in $stylist.getClients())
   <h5>$client.getName()</h5>
 #end
+
+<form action="/stylist/$stylist.getId()/delete" method="post">
+  <button type="submit" class="btn btn-warning">Delete Stylist</button>
+</form>

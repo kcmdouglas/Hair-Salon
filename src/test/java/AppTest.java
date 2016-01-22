@@ -57,4 +57,15 @@ public class AppTest extends FluentTest {
     assertThat(pageSource()).contains("Wilhelm II");
   }
 
+  @Test
+  public void newStylistIsDeletedTest() {
+    Stylist newStylist = new Stylist("Otto Von Bismarck");
+    newStylist.save();
+    Stylist newStylistTwo = new Stylist("Franz Ferdinand");
+    newStylistTwo.save();
+    newStylist.delete();
+    goTo("http://localhost:4567/");
+    assertThat(!(pageSource()).contains("Otto Von Bismarck"));
+  }
+
 }
