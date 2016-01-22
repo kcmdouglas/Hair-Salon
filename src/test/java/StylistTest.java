@@ -33,4 +33,21 @@ public class StylistTest {
     Stylist savedStylist = Stylist.find(myStylist.getId());
     assertTrue(myStylist.equals(savedStylist));
   }
+
+  @Test
+  public void update_updatesStylistNameInDatabase_newName() {
+    Stylist myStylist = new Stylist("Franz Ferdinand");
+    myStylist.save();
+    myStylist.update("Otto Von Bismarck");
+    assertEquals(myStylist.getName(), "Otto Von Bismarck", "Otto Von Bismarck");
+  }
+
+  @Test
+  public void delete_deletesStylistEntry_true() {
+    Stylist myStylist = new Stylist("Franz Ferdinand");
+    myStylist.save();
+    myStylist.update("Otto Von Bismarck");
+    assertEquals(myStylist.getName(), "Otto Von Bismarck", "Otto Von Bismarck");
+  }
+
 }
