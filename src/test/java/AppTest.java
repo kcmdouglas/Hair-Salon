@@ -29,10 +29,19 @@ public class AppTest extends FluentTest {
   }
 
   @Test
-  public void categoryIsCreatedTest() {
+  public void stylistIsCreatedTest() {
     Stylist newStylist = new Stylist("Otto Von Bismarck");
     newStylist.save();
     String stylistPath = String.format("http://localhost:4567/stylist/%d", newStylist.getId());
+    goTo(stylistPath);
+    assertThat(pageSource()).contains("Otto Von Bismarck");
+  }
+
+  @Test
+  public void stylistIsDisplayedTest() {
+    Stylist newStylist = new Stylist("Otto Von Bismarck");
+    newStylist.save();
+    String stylistPath = String.format("http://localhost:4567/");
     goTo(stylistPath);
     assertThat(pageSource()).contains("Otto Von Bismarck");
   }
