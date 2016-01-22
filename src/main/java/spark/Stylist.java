@@ -6,7 +6,7 @@ public class Stylist{
   private String mName;
 
   public Stylist(String name){
-    mName = name;
+    this.mName = name;
   }
 
   public int getId() {
@@ -41,6 +41,16 @@ public class Stylist{
         .addParameter("name", this.mName)
         .executeUpdate()
         .getKey();
+    }
+  }
+
+  public static Stylist find(int mId) {
+    try(Connection con = DB.sql2o.open()) {
+      String sql = "SELECT id AS mId, name AS mName FROM stylists WHERE id=:id";
+      Stylist stylist = con.createQuery(sql)
+        .addParameter("id", mId)
+        .executeAndFetchFirst(Stylist.class);
+      return stylist;
     }
   }
 
