@@ -1,5 +1,6 @@
 import java.util.List;
 import org.sql2o.*;
+import java.util.Arrays;
 
 public class Stylist{
   private int mId;
@@ -70,6 +71,15 @@ public class Stylist{
     con.createQuery(sql)
       .addParameter("id", mId)
       .executeUpdate();
+    }
+  }
+
+  public List<Client> getClients(){
+    try(Connection con = DB.sql2o.open()) {
+      String sql = "SELECT id AS mId, name AS mName, stylist_id AS mStylistId FROM clients where stylist_id = :id";
+      return con.createQuery(sql)
+        .addParameter("id", this.mId)
+        .executeAndFetch(Client.class);
     }
   }
 

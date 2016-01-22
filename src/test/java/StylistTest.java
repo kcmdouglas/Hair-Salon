@@ -60,7 +60,7 @@ public class StylistTest {
     Client secondClient = new Client("The City of Sarajevo", myStylist.getId());
     secondClient.save();
     Client[] clients = new Client[] { firstClient, secondClient };
-    assertTrue(myStylist.getClients().containsAll(Arrays.asList(tasks)));
+    assertTrue(myStylist.getClients().containsAll(Arrays.asList(clients)));
   }
 
 }
