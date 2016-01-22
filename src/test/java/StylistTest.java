@@ -46,8 +46,8 @@ public class StylistTest {
   public void delete_deletesStylistEntry_true() {
     Stylist myStylist = new Stylist("Franz Ferdinand");
     myStylist.save();
-    myStylist.update("Otto Von Bismarck");
-    assertEquals(myStylist.getName(), "Otto Von Bismarck", "Otto Von Bismarck");
+    myStylist.delete();
+    assertEquals(Stylist.all().size(), 0);
   }
 
 }
