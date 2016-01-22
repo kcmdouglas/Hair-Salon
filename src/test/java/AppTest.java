@@ -28,4 +28,13 @@ public class AppTest extends FluentTest {
     assertThat(pageSource()).contains("Welcome to your Stylist Database");
   }
 
+  @Test
+  public void categoryIsCreatedTest() {
+    Stylist newStylist = new Stylist("Otto Von Bismarck");
+    newStylist.save();
+    String stylistPath = String.format("http://localhost:4567/stylist/%d", newStylist.getId());
+    goTo(stylistPath);
+    assertThat(pageSource()).contains("Otto Von Bismarck");
+  }
+
 }
