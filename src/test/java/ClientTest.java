@@ -43,12 +43,12 @@ public class ClientTest {
     assertEquals(myClient.getName(), "The City of Sarajevo", "The City of Sarajevo");
   }
 
-  // @Test
-  // public void delete_deletesClientEntry_true() {
-  //   Stylist myStylist = new Stylist("Franz Ferdinand");
-  //   myStylist.save();
-  //   myStylist.delete();
-  //   assertEquals(Stylist.all().size(), 0);
-  // }
+  @Test
+  public void delete_deletesClientEntry_true() {
+    Client myClient = new Client("Gavrilo Princip", 1);
+    myClient.save();
+    myClient.delete();
+    assertEquals(Client.all().size(), 0);
+  }
 
 }
