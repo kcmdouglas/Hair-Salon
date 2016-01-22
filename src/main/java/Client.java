@@ -41,17 +41,18 @@ public class Client{
       return con.createQuery(sql).executeAndFetch(Client.class);
     }
   }
-  //
-  // public void save() {
-  //   try(Connection con = DB.sql2o.open()) {
-  //     String sql = "INSERT INTO stylists(name) VALUES (:name)";
-  //     this.mId = (int) con.createQuery(sql, true)
-  //       .addParameter("name", this.mName)
-  //       .executeUpdate()
-  //       .getKey();
-  //   }
-  // }
-  //
+
+  public void save() {
+    try(Connection con = DB.sql2o.open()) {
+      String sql = "INSERT INTO clients(name, stylist_id) VALUES (:name, :stylist_id)";
+      this.mId = (int) con.createQuery(sql, true)
+        .addParameter("name", this.mName)
+        .addParameter("stylist_id", this.mStylistId)
+        .executeUpdate()
+        .getKey();
+    }
+  }
+
   // public static Stylist find(int mId) {
   //   try(Connection con = DB.sql2o.open()) {
   //     String sql = "SELECT id AS mId, name AS mName FROM stylists WHERE id=:id";

@@ -20,12 +20,12 @@ public class ClientTest {
     assertTrue(firstClient.equals(secondClient));
   }
 
-  // @Test
-  // public void save_savesIntoDatabase_true() {
-  //   Stylist myStylist = new Stylist("Franz Ferdinand");
-  //   myStylist.save();
-  //   assertTrue(Stylist.all().get(0).equals(myStylist));
-  // }
+  @Test
+  public void save_savesIntoDatabase_true() {
+    Client myClient = new Client("Gavrilo Princip", 1);
+    myClient.save();
+    assertTrue(Client.all().get(0).equals(myClient));
+  }
   //
   // @Test
   // public void find_findStylistInDatabase_true() {
