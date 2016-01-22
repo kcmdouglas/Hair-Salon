@@ -2,15 +2,12 @@
 
 <h2>Here are all current stylists:</h2>
 
-#if ($stylists)
-  <ul>
-    #foreach ($stylist in $stylists)
-      <li><h5><a href="/stylist/$stylist.getId()">$stylist.getName()</a></h5></li>
-    #end
-  </ul>
-#else
-  <h4>There are no stylists in your database! Add one using the form below.</h4>
-#end
+
+<ul>
+  #foreach ($stylist in $stylists)
+    <li><h5><a href="/stylist/$stylist.getId()">$stylist.getName()</a></h5></li>
+  #end
+</ul>
 
 <form action="/stylist/new" method="post">
   <div class="form-group">
@@ -20,22 +17,20 @@
   <button type="submit" class="btn btn-success">Add Stylist</button>
 </form>
 
-
-
-<form action="/tasks" method="post">
+<form action="/client/new" method="post">
   <div class="form-group">
-    <label for="categoryId">Select a List</label>
-    <select id='categoryId' name='categoryId' type='text'>
-    #foreach($category in $categories)
-      <option value="$category.getId()">$category.getName()</option>
+    <label for="stylistId">Select a Stylist</label>
+    <select id='stylistId' name='stylistId' type='text'>
+    #foreach($stylist in $stylists)
+      <option value="$stylist.getId()">$stylist.getName()</option>
     #end
     </select>
   </div>
 
   <div class="form-group">
-    <label for="description">Make</label>
-    <input id="description" name="description" type="text" class="form-control">
+    <label for="client">Client Name</label>
+    <input id="client" name="client" type="text" class="form-control">
   </div>
 
-  <button type="submit" class="btn btn-success">Add Task</button>
+  <button type="submit" class="btn btn-success">Add Client</button>
 </form>
