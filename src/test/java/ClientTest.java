@@ -35,16 +35,16 @@ public class ClientTest {
     assertTrue(myClient.equals(savedClient));
   }
 
+  @Test
+  public void update_updatesClientNameInDatabase_newName() {
+    Client myClient = new Client("Gavrilo Princip", 1);
+    myClient.save();
+    myClient.update("The City of Sarajevo", 1);
+    assertEquals(myClient.getName(), "The City of Sarajevo", "The City of Sarajevo");
+  }
+
   // @Test
-  // public void update_updatesStylistNameInDatabase_newName() {
-  //   Stylist myStylist = new Stylist("Franz Ferdinand");
-  //   myStylist.save();
-  //   myStylist.update("Otto Von Bismarck");
-  //   assertEquals(myStylist.getName(), "Otto Von Bismarck", "Otto Von Bismarck");
-  // }
-  //
-  // @Test
-  // public void delete_deletesStylistEntry_true() {
+  // public void delete_deletesClientEntry_true() {
   //   Stylist myStylist = new Stylist("Franz Ferdinand");
   //   myStylist.save();
   //   myStylist.delete();

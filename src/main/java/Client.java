@@ -63,16 +63,17 @@ public class Client{
     }
   }
 
-  // public void update(String name) {
-  //   try(Connection con = DB.sql2o.open()) {
-  //     String sql = "UPDATE stylists SET name = :name WHERE id = :id";
-  //     con.createQuery(sql)
-  //       .addParameter("name", mName)
-  //       .addParameter("id", mId)
-  //       .executeUpdate();
-  //   }
-  // }
-  //
+  public void update(String name, int stylistId) {
+    try(Connection con = DB.sql2o.open()) {
+      String sql = "UPDATE clients SET name = :name, stylist_id = :stylist_id  WHERE id = :id";
+      con.createQuery(sql)
+        .addParameter("name", mName)
+        .addParameter("stylist_id", mStylistId)
+        .addParameter("id", mId)
+        .executeUpdate();
+    }
+  }
+
   // public void delete() {
   //   try(Connection con = DB.sql2o.open()) {
   //   String sql = "DELETE FROM stylists WHERE id = :id;";
