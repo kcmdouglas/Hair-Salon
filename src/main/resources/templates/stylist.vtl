@@ -1,0 +1,6 @@
+<h1>$stylist.getName()</h1>
+
+<h3>Here are all clients for this stylist:</h3>
+#foreach ($client in $stylist.getClients())
+  <h5>$client.getName()</h5>
+#end
