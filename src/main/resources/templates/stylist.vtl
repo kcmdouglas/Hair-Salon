@@ -6,66 +6,78 @@
     #foreach ($client in $stylist.getClients())
       <h5>$client.getName()</h5>
     #end
+    <br>
+    <br>
+    <br>
   </div>
+
+    <br>
+    <br>
+    <br>
+  <div class="col-md-6">
+    <!-- Add a new client: -->
+        <form action="/stylist/$stylist.getId()/client/new" method="post">
+          <div class="form-group">
+            <label for="client">Client Name</label>
+            <input id="client" name="client" type="text" class="form-control" style="width: 250px;">
+          </div>
+
+          <button type="submit" class="btn btn-success">Add Client</button>
+        </form>
+
+    <!-- Delete a client -->
+        <form action="/stylist/$stylist.getId()/client/delete" method="post">
+          <div class="form-group">
+            <label for="clientDelete">Select a Client</label>
+            <select id='clientDelete' name='clientDelete' type='text'>
+            #foreach($client in $stylist.getClients())
+              <option value="$client.getId()">$client.getName()</option>
+            #end
+            </select>
+          </div>
+          <button type="submit" class="btn btn-danger">Delete Client</button>
+        </form>
+        <br>
+        <br>
+    <!-- Delete this stylist -->
+        <form action="/stylist/$stylist.getId()/delete" method="post">
+          <button type="submit" class="btn btn-danger">Delete Stylist</button>
+        </form>
+
+    <br>
+    <br>
+  </div>
+  <div class="col-md-6">
+  <!-- Update a client -->
+      <form action="/stylist/$stylist.getId()/client/update" method="post">
+        <div class="form-group">
+          <label for="clientId">Select a Client</label>
+          <select id='clientId' name='clientId' type='text'>
+          #foreach($client in $stylist.getClients())
+            <option value="$client.getId()">$client.getName()</option>
+          #end
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="clientName">Client Name</label>
+          <input id="clientName" name="clientName" type="text" class="form-control" style="width: 250px;">
+        </div>
+        <button type="submit" class="btn btn-info">Update Client</button>
+      </form>
+
+      <br>
+      <br>
+  <!-- Update stylist info: -->
+      <form action="/stylist/$stylist.getId()" method="post">
+        <div class="form-group">
+          <label for="updateStylist">Update Stylist Name</label>
+          <input id="updateStylist" name="updateStylist" type="text" class="form-control" style="width: 250px;">
+        </div>
+        <button type="submit" class="btn btn-info">Update Stylist Information</button>
+      </form>
+
+
+
+      <a href="/" class="btn btn-success">Home</a>
+    </div>
 </div>
-    <br>
-    <br>
-    <br>
-    <form action="/stylist/$stylist.getId()/delete" method="post">
-      <button type="submit" class="btn btn-danger">Delete Stylist</button>
-    </form>
-
-    <br>
-    <br>
-    <form action="/stylist/$stylist.getId()" method="post">
-      <div class="form-group">
-        <label for="updateStylist">Update Stylist Name</label>
-        <input id="updateStylist" name="updateStylist" type="text" class="form-control" style="width: 250px;">
-      </div>
-      <button type="submit" class="btn btn-info">Update Stylist Information</button>
-    </form>
-
-    <br>
-    <br>
-
-    <form action="/stylist/$stylist.getId()/client/new" method="post">
-      <div class="form-group">
-        <label for="client">Client Name</label>
-        <input id="client" name="client" type="text" class="form-control" maxlength=style="width: 250px;">
-      </div>
-
-      <button type="submit" class="btn btn-success">Add Client</button>
-    </form>
-
-    <br>
-    <br>
-
-    <form action="/stylist/$stylist.getId()/client/delete" method="post">
-      <div class="form-group">
-        <label for="clientDelete">Select a Client</label>
-        <select id='clientDelete' name='clientDelete' type='text'>
-        #foreach($client in $stylist.getClients())
-          <option value="$client.getId()">$client.getName()</option>
-        #end
-        </select>
-      </div>
-      <button type="submit" class="btn btn-danger">Delete Client</button>
-    </form>
-
-    <form action="/stylist/$stylist.getId()/client/update" method="post">
-      <div class="form-group">
-        <label for="clientId">Select a Client</label>
-        <select id='clientId' name='clientId' type='text'>
-        #foreach($client in $stylist.getClients())
-          <option value="$client.getId()">$client.getName()</option>
-        #end
-        </select>
-      </div>
-      <div class="form-group">
-        <label for="clientName">Client Name</label>
-        <input id="clientName" name="clientName" type="text" class="form-control" maxlength=style="width: 250px;">
-      </div>
-      <button type="submit" class="btn btn-info">Update Client</button>
-    </form>
-
-    <a href="/" class="btn btn-success">Home</a>
