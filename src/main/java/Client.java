@@ -64,6 +64,8 @@ public class Client{
   }
 
   public void update(String name, int stylistId) {
+    this.mName = name;
+    this.mStylistId = stylistId;
     try(Connection con = DB.sql2o.open()) {
       String sql = "UPDATE clients SET name = :name, stylist_id = :stylist_id  WHERE id = :id";
       con.createQuery(sql)

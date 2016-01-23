@@ -89,6 +89,7 @@ public class App {
 
 // POST actions for clients:
 
+// Add a new client on the home page:
     post("/client/new", (request, response) -> {
       HashMap<String, Object> model = new HashMap<String, Object>();
       String name = request.queryParams("client");
@@ -103,6 +104,7 @@ public class App {
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
 
+// Add a new client on an individual stylist page:
     post("/stylist/:id/client/new", (request, response) -> {
       HashMap<String, Object> model = new HashMap<String, Object>();
       String name = request.queryParams("client");
@@ -117,7 +119,7 @@ public class App {
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
 
-
+// Delete a client on an individual stylist page:
     post("/stylist/:id/client/delete", (request, response) -> {
       HashMap<String, Object> model = new HashMap<String, Object>();
       Client client = Client.find(Integer.parseInt(request.queryParams("clientDelete")));
@@ -127,21 +129,20 @@ public class App {
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
 
-    // post("/client/update", (request, response) -> {
-    //   HashMap<String, Object> model = new HashMap<String, Object>();
-    //   Client client = Client.find(Integer.parseInt(request.queryParams("clientId")));
-    //   Stylist stylist = Stylist.find(Integer.parseInt(request.queryParams("stylistId")));
-    //   Integer stylistId = Integer.parseInt(request.queryParams("stylistId"));
-    //   String name = request.queryParams("clientName");
-    //
-    //   client.update(name, stylistId);
-    //   model.put("client", client);
-    //   model.put("stylist", stylist);
-    //   model.put("clients", Client.all());
-    //   model.put("stylists", Stylist.all());
-    //   model.put("template", "templates/home.vtl");
-    //   return new ModelAndView(model, layout);
-    // }, new VelocityTemplateEngine());
+// Update a client's information on home page:
+    post("/client/update", (request, response) -> {
+      HashMap<String, Object> model = new HashMap<String, Object>();
+      Client client = Client.find(Integer.parseInt(request.queryParams("clientId")));
+      Integer stylistId = Integer.parseInt(request.queryParams("stylistId"));
+      String name = request.queryParams("clientName");
+
+      client.update(name, stylistId);
+      model.put("client", client);
+      model.put("clients", Client.all());
+      model.put("stylists", Stylist.all());
+      model.put("template", "templates/home.vtl");
+      return new ModelAndView(model, layout);
+    }, new VelocityTemplateEngine());
 
   }
 }
