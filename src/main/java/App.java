@@ -49,6 +49,20 @@ public class App {
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
 
+// Update a stylist name on the home page:
+
+    post("/stylist/update", (request, response) -> {
+      HashMap<String, Object> model = new HashMap<String, Object>();
+      String newName = request.queryParams("updateStylist");
+      Stylist stylist = Stylist.find(Integer.parseInt(request.queryParams("stylistId")));
+      stylist.update(newName);
+
+      model.put("stylist", stylist);
+      model.put("stylists", Stylist.all());
+      model.put("template", "templates/home.vtl");
+      return new ModelAndView(model, layout);
+    }, new VelocityTemplateEngine());
+
 // Delete a stylist on invididual stylist page:
     post("/stylist/:id/delete", (request, response) -> {
       HashMap<String, Object> model = new HashMap<String, Object>();

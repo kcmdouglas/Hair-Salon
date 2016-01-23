@@ -10,7 +10,9 @@
 </ul>
 
 <br>
-<h3>Add Stylists</h3>
+
+  <div class="col-md-6">
+<h3>Add a New Stylist</h3>
 <form action="/stylist/new" method="post">
   <div class="form-group">
     <label for="stylist">Stylist name</label>
@@ -19,28 +21,11 @@
   <button type="submit" class="btn btn-success">Add Stylist</button>
 </form>
 
-<form action="/" method="post">
-  <div class="form-group">
-    <label for="stylistId">Select a Stylist</label>
-    <select id='stylistId' name='stylistId' type='text'>
-    #foreach($stylist in $stylists)
-      <option value="$stylist.getId()">$stylist.getName()</option>
-    #end
-    </select>
-  </div>
-  <div class="form-group">
-    <label for="updateStylist">Update Stylist Name</label>
-    <input id="updateStylist" name="updateStylist" type="text" class="form-control" style="width: 250px;">
-  </div>
-  <button type="submit" class="btn btn-success">Update Stylist Information</button>
-</form>
-
-
-
 
 <br>
 <br>
-<h3>Add and Update Clients</h3>
+
+<h3>Add a New Client</h3>
 <form action="/client/new" method="post">
   <div class="form-group">
     <label for="stylistId">Select a Stylist</label>
@@ -57,6 +42,78 @@
 
   <button type="submit" class="btn btn-success">Add Client</button>
 </form>
+</div>
+
+<div class="col-md-6">
+  <h3>Update Existing Stylist</h3>
+  <form action="/stylist/update" method="post">
+    <div class="form-group">
+      <label for="stylistId">Select a Stylist</label>
+      <select id='stylistId' name='stylistId' type='text'>
+      #foreach($stylist in $stylists)
+        <option value="$stylist.getId()">$stylist.getName()</option>
+      #end
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="updateStylist">Update Stylist Name</label>
+      <input id="updateStylist" name="updateStylist" type="text" class="form-control" style="width: 250px;">
+    </div>
+    <button type="submit" class="btn btn-success">Update Stylist Information</button>
+  </form>
+
+<br>
+<br>
+
+  <h3>Update Existing Customer</h3>
+  <form action="/client/update" method="post">
+    <div class="form-group">
+      <label for="clientId">Select a Client to Edit</label>
+      <select id='clientId' name='clientId' type='text'>
+      #foreach($client in $clients)
+        <option value="$client.getId()">$client.getName()</option>
+      #end
+      </select>
+    </div>
+  <div class="form-group">
+    <label for="stylistId">Select a Stylist</label>
+    <select id='stylistId' name='stylistId' type='text'>
+    #foreach($stylist in $stylists)
+      <option value="$stylist.getId()">$stylist.getName()</option>
+    #end
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="updateStylist">Update Client Name</label>
+    <input id="updateStylist" name="updateStylist" type="text" class="form-control" style="width: 250px;">
+  </div>
+  <button type="submit" class="btn btn-success">Update Client Information</button>
+  </form>
+</div>
+
+
+
+<!--
+<br>
+<br>
+
+<h3>Add and Update Clients</h3>
+<form action="/client/new" method="post">
+  <div class="form-group">
+    <label for="stylistId">Select a Stylist</label>
+    <select id='stylistId' name='stylistId' type='text'>
+    #foreach($stylist in $stylists)
+      <option value="$stylist.getId()">$stylist.getName()</option>
+    #end
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="client">Client Name</label>
+    <input id="client" name="client" type="text" class="form-control" style="width: 100px;">
+  </div>
+
+  <button type="submit" class="btn btn-success">Add Client</button>
+</form> -->
 <!--
 <form action="/client/update" method="post">
   <div class="form-group">
