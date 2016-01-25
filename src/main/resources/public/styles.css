@@ -5,3 +5,11 @@ h1 {
 h2, h3, h4, h5{
   font-family: 'Ledger', serif;
 }
+
+#stylist_page h1 {
+  font-family: 'Nixie One', cursive;
+}
+
+#stylist_page h2, h3, h4, h5{
+  font-family: 'Ledger', serif;
+}
