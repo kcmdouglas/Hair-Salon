@@ -68,4 +68,26 @@ public class AppTest extends FluentTest {
     assertThat(!(pageSource()).contains("Otto Von Bismarck"));
   }
 
+  @Test
+  public void newStylistIsUpdatedTest(){
+    Stylist newStylist = new Stylist("Otto Von Bismarck");
+    newStylist.save();
+    newStylist.update("Wilhelm II");
+    goTo("http://localhost:4567/");
+    assertThat(pageSource()).contains("Wilhelm II");
+  }
+
+  @Test
+  public void newClientIsUpdatedTest(){
+    Stylist newStylist = new Stylist("Otto Von Bismarck");
+    newStylist.save();
+    Stylist newStylistTwo = new Stylist("Franz Ferdinand");
+    newStylistTwo.save();
+    Client newClient = new Client("Wilhelm II", 0);
+    newClient.update("Wilhelm II", newStylistTwo.getId());
+    String newPath = String.format("http://localhost:4567/stylist/%d", newClient.getStylistId());
+    goTo(newPath);
+    assertThat(pageSource()).contains("Franz Ferdinand");
+  }
+
 }

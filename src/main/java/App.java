@@ -45,6 +45,7 @@ public class App {
 
       newStylist.save();
       model.put("stylists", Stylist.all());
+      model.put("clients", Client.all());
       model.put("template", "templates/home.vtl");
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
