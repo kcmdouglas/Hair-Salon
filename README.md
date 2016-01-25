@@ -10,7 +10,7 @@ This repository is a code review for week three of Java. In it, a stylist owner 
 
 ## Setup/Installation Requirements
 
-* Be sure to have gradle, postgres, and psql installed.
+* Be sure to have all technologies used installed.
 * Clone this repository
 * Run a server in a terminal, using
 `postgres`
