@@ -17,7 +17,9 @@ This repository is a code review for week three of Java. In it, a stylist owner 
 * In a separate terminal, run:
 `psql`
 * In PSQL, run these commands:
-```CREATE DATABASE hair_salon;
+
+```
+CREATE DATABASE hair_salon;
 CREATE TABLE stylists (id serial PRIMARY KEY, name varchar);
 CREATE TABLE clients (id serial PRIMARY KEY, name varchar, stylist_id int);
 CREATE DATABASE hair_salon_test WITH TEMPLATE hair_salon;
@@ -25,12 +27,12 @@ CREATE DATABASE hair_salon_test WITH TEMPLATE hair_salon;
 
 * Download this repository
 * In a separate terminal, navigate to your project folder then run:
-```psql hair_salon < hair_salon.sql
-```
+
+`psql hair_salon < hair_salon.sql`
 
 * Finally, in the same terminal in which you are viewing your project folder, run the command:
-  ```gradle run
-  ```
+
+`gradle run`
 
 
 
